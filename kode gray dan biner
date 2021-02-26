@@ -1,11 +1,3 @@
-/******************************************************************************
-
-                              Online C++ Compiler.
-               Code, Compile, Run and Debug C++ program online.
-Write your code in this editor and press "Run" button to compile and execute it.
-
-*******************************************************************************/
-
 #include <iostream>
 #include <string.h>
 
@@ -21,7 +13,7 @@ int main()
     cout << "masukan nilai biner : ";
     cin >> biner;
     kodeGray(biner);
-    
+
     cout << endl << "masukan nilai gray : ";
     cin >> gray;
     kodeBiner(gray);
@@ -36,34 +28,34 @@ void kodeGray(char biner[]){
         if(biner[i] == biner[i+1]){
             biner[i] = '0';
             cout << biner[i];
-            
+
         } else {
             biner[i] = '1';
             cout << biner[i];
         }
     }
-    
+
 }
 
 void kodeBiner(char gray[]){
     int len = strlen(gray);
-    char penampung[100];
-    char penampung1[100];
-    penampung[0] = gray[0];
-    penampung1[0] = gray[1];
+    char penampung [100];
     cout << "kode biner nya adalah : ";
-    cout << penampung[0];
+    cout << gray[0];
+    
+    if(gray[0] == gray[1]){
+        penampung[0] = '1';
+    } else {
+        penampung[0] = '0';
+    }
+    
     for (int i = 0; i <= len - 2; i++) {
-        if(penampung1[i] == penampung[i]){
-            penampung[i] = '0';
-            cout << penampung[i];
+        if(gray[i+1] == penampung[i]){
+            penampung[i+1] = '0';
+            cout << penampung[i + 1];
         } else {
-            penampung[i] = '1';
-            cout << penampung[i];
+            penampung[i+1] = '1';
+            cout << penampung[i + 1];
         }
     }
 }
-
-
-
-
