@@ -1,0 +1,75 @@
+# fitur login
+
+
+usermember = {"username":"member","password":"member"} # username dan password user 1
+
+print("Apakah memiliki kartu member? : \n1. Iya\n2. Tidak\n Pilihan : ",end="")
+member = int(input(""))
+
+if member == 1:
+    logged = "gagal" # faktor pengulangan while untuk login
+    totalSalahLogin = 0
+    
+    while logged == "gagal":
+        print("Silahkan input username dan password")
+        username = input("Masukan username : ")
+        password = input("Masukan password : ")
+        if username == usermember['username'] and password == usermember['password']:
+            print("Anda Telah Login\n")
+            logged = "berhasil"
+        else:
+            print("Ops username atau password salah\n")
+            totalSalahLogin += 1
+            if totalSalahLogin == 5:
+                quit()
+
+else :
+    print("Silahkan langsung mengisi formulir")
+
+
+
+nama = input("Nama Peminjam : ")
+alamat = input("Alamat Peminjam : ")
+hp = input("No. HP : ")
+print("\nStatus Peminjam : \n1. Mahasiswa\n2. Pekerja\nPilihan : ",end="")
+status = int(input(""))
+print("\nJENIS KAMERA")
+print(" Jenis Kamera            Biaya Peminjaman       Stok Kamera")
+print("1. Camera Polaroid          Rp.120.000 / Hari           3")
+print("2. Action Cam               Rp.150.000 / Hari           3")
+print("3. Handycam                 Rp.170.000 / Hari           3")
+print("4. Camera DSLR              Rp.175.000 / Hari           3")
+print("5. Camera Mirrorless        Rp.180.000 / Hari           3")
+print("6. Video Recorder           Rp.220.000 / Hari           3")
+print("7. Camera 360               Rp.250.000 / Hari           3")
+print("8. Camera IR                Rp.300.000 / Hari           3")
+print("9. Medium Format Camera     Rp.350.000 / Hari           3")
+print("10. Aerial Camera           Rp.500.000 / Hari           3")
+jenis = int(input("Masukan jenis kamera yang ingin disewa (nomornya): "))
+lama = int(input("Lama peminjaman : "))
+biaya = int(input("Biaya peminjaman kamera / Hari : "))
+print("\nJaminan : \n1. KTM (Kartu Tanda Mahasiswa)\n2. KTP\nMasukan pilihan : ",end="")
+jaminan = int(input(""))
+biayatotal = int(input("Biaya total peminjaman : "))
+
+print(50*"-")
+if lama > 1:
+    totalHarga = biayatotal - (lama*1000 + (lama*1000 - 2000))
+else:
+    totalHarga = biayatotal
+
+if member == 1: #member
+    totalHarga = totalHarga*(9/10)
+    if jaminan == 1: #KTM
+        totalHarga = totalHarga*(19/20)
+    else:
+        totalHarga = totalHarga
+else:
+    if jaminan == 1: #KTM
+        totalHarga = totalHarga*(19/20)
+    else:
+        totalHarga = totalHarga
+
+print("Total harga peminjaman adalah : ")
+print(str(totalHarga))
+akhir = input("-- Tekan enter untuk mengakhiri program --")
